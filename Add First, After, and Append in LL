@@ -1,0 +1,93 @@
+# include<bits/stdc++.h>
+using namespace std;
+
+Without Constructor
+
+struct Node{
+int data;
+Node* next;
+
+//Node(int data){          //constructor
+//  Node->data = data;
+// Node->next = NULL;
+}
+}
+
+// Func Parameters are known quantities
+
+//Double pointer (Pointer to pointer)             //if head has to be moved
+void insertfront(Node ** head_ref, int d){                                                                        O(1) T.C and S.C
+   
+   Node* new_node = new Node();                   //allocate new node 
+   new_node->data = d;  // new node data assign
+   new_node->next = (*head_ref);                 //new node's next becomes whatever head is pointing to currently
+   (*head_ref) = new_node;                       //change heads position to point to new node
+}
+
+// first always assign new node parameters then change the old ones no longer valid like in above func last 2 lines
+
+void insertafter(Node * prv_node, int d){
+
+   if(prv_node == NULL){cout<<"ERROR: It cannot be null"; return;}
+   Node* new_node = new Node();                                                                                  O(1) T.C and S.C
+   new_node->data = d;
+   new_node->next = prv_node->next;
+   prv_node->next = new_node;
+
+}
+
+void insertend(Node ** head_ref, int d){                                                                        O(n) T.C : optimization by extra pointer to tail
+   Node* new_node = new Node();                                                                                 O(1) S.C
+   new_node->data = d;
+   new_node->next = NULL;
+   
+   Node* last = *head_ref; // used in else traversal below
+   
+   //if LL empty then make new node as head
+   if(* head_ref == NULL){
+       *head_ref = new_node;
+       return;
+   }
+   
+   //else traverse the LL till the last node
+   
+   while(last->next != NULL){
+       last = last->next;
+   }
+   
+   last->next = new_node;
+   return;
+    
+}
+
+
+int main(){
+    // Start with the empty list
+    Node* head = NULL;
+     
+    // Insert 6. So linked list becomes 6->NULL
+    append(&head, 6);
+     
+    // Insert 7 at the beginning.
+    // So linked list becomes 7->6->NULL
+    push(&head, 7);
+     
+    // Insert 1 at the beginning.
+    // So linked list becomes 1->7->6->NULL
+    push(&head, 1);
+     
+    // Insert 4 at the end. So
+    // linked list becomes 1->7->6->4->NULL
+    append(&head, 4);
+     
+    // Insert 8, after 7. So linked
+    // list becomes 1->7->8->6->4->NULL
+    insertAfter(head->next, 8);
+     
+    cout<<"Created Linked list is: ";
+    printList(head);
+     
+    return 0;
+
+
+}
