@@ -1,0 +1,63 @@
+// Iterative O(n) and O(1)
+
+3 pointers : *prev = NULL, *curr = head, *next = NULL  
+
+let LL be :   1-> 2-> 3->NULL
+              |
+             curr
+
+Iterate 4 operations until NULL is reached 
+    1. In next save current node ka next  
+    
+       1 -> 2 -> 3 -> NULL
+       |    |
+       curr next
+    2. Now Change current node ka next to prev node
+    
+NULL  <-1    2 -> 3 -> NULL
+   |    |    |
+prev   curr next
+   
+    3. Now Move prev to current i.e prev will point where current is pointing
+    
+    
+    4. Current will now point next
+    
+Class Solution{
+public:
+    ListNode* reverseList(ListNode* head){
+        ListNode *prev = NULL, *curr = head, *next;
+        while(curr){
+            next = curr->next; //1
+            curr->next = prev; //2
+            prev = curr;       //3   
+            curr = next;       //4
+        
+        } //while curr is not NULL
+        return prev; //as prev becomes first node
+    }
+
+}
+    
+// Recursive
+
+ListNode* reverse(ListNode* head)
+    {
+        if (head == NULL || head->next == NULL)   //either list empty or only one node present
+            return head;
+ 
+        /* reverse the rest list and put
+          the first element at the end */
+        Node* rest = reverse(head->next);
+        head->next->next = head;
+ 
+        /* tricky step -- see the diagram */
+        head->next = NULL;
+ 
+        /* fix the head pointer */
+        return rest;
+    }
+    
+    
+    
+
