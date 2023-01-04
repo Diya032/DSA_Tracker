@@ -1,0 +1,38 @@
+// 1. Traverse linked list till (size - 2) i.e the second last element
+// 2. Make the next pointer of this node as NULL after deleting the last node
+
+#include <iostream>
+using namespace std;
+ 
+/* Link list node */
+struct Node {
+    int data;
+    struct Node* next;
+};
+ 
+/* Function to remove the last node 
+   of the linked list */
+Node* removeLastNode(struct Node* head)                   // head is known
+{
+    if (head == NULL)                                    // if list empty or only 1 node exists in list
+        return NULL;
+ 
+    if (head->next == NULL) {
+        delete head;
+        return NULL;
+    }
+ 
+    // Find the second last node                        // else traverse LL till the second last element 
+    Node* second_last = head;                           // delete second_last->next or the last node 
+    while (second_last->next->next != NULL)             // set second_last->next as NULL, thus now it becomes the last node.
+        second_last = second_last->next;
+ 
+    // Delete last node
+    delete (second_last->next);
+ 
+    // Change next of second last
+    second_last->next = NULL;
+ 
+    return head;
+}
+ 
