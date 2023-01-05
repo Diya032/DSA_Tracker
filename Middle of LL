@@ -1,6 +1,13 @@
 //Approach 1 : Traverse whole LL find Length now traverse again till len/2
 //Approach 2 : Fast pointer
 
+
+class Node{
+public:
+    Node *next;
+    int data;
+}
+
 // A utility function to print a given linked list
     void printNode(class Node *head){
         while(head != NULL){
@@ -25,3 +32,26 @@
         }
     }
 };
+
+
+//Approach 3: Initialize the mid element as head and initialize a counter as 0. 
+Traverse the list from the head, while traversing increment the counter and change mid to mid->next whenever the counter is odd.
+So the mid will move only half of the total length of the list. 
+
+int printmid(class Node *head){
+    Node *mid = head;
+    count = 0
+    
+    while( head!= NULL and head->next != NULL){
+        head = head->next;
+        count++;
+        if(count%2 !=0){                        //can write odd condition as such too (count & 1)
+            mid = mid->next;
+        }
+     return mid->data;
+    }
+
+
+
+
+}
