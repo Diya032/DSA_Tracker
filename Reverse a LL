@@ -59,5 +59,16 @@ ListNode* reverse(ListNode* head)
     }
     
     
+//Recursive Abd Br
+
+/* We'll need two pointers */
+    void Reverse3(struct Node *q,struct Node *p){
     
+        if(p){
+        Reverse3(p,p->next);
+        p->next=q;
+      }
+         else
+         first=q;
+}
 
