@@ -43,15 +43,13 @@ int printmid(class Node *head){
     count = 0
     
     while( head!= NULL and head->next != NULL){
-        head = head->next;
-        count++;
+        
         if(count%2 !=0){                        //can write odd condition as such too (count & 1)
             mid = mid->next;
         }
-     return mid->data;
+        ++count;
+        head = head->next;
+  
     }
-
-
-
-
+  return mid->data;  
 }
