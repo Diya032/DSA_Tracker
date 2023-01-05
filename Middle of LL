@@ -1,0 +1,27 @@
+//Approach 1 : Traverse whole LL find Length now traverse again till len/2
+//Approach 2 : Fast pointer
+
+// A utility function to print a given linked list
+    void printNode(class Node *head){
+        while(head != NULL){
+            cout <<head->data << "->";
+            head = head->next;
+        }
+        cout << "NULL" << endl;
+    }
+     
+    void printMiddle(class Node *head){
+        struct Node *slow_ptr = head;
+        struct Node *fast_ptr = head;
+  
+        if (head!=NULL)
+        {
+            while (fast_ptr != NULL && fast_ptr->next != NULL)   //During traveral must not exceed linked list and must end at last node
+            {
+                fast_ptr = fast_ptr->next->next;
+                slow_ptr = slow_ptr->next;
+            }
+            cout << "The middle element is [" << slow_ptr->data << "]" << endl;
+        }
+    }
+};
