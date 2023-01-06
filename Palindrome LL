@@ -1,0 +1,32 @@
+// 3 Functions Requirement within isPalindrome Bool function
+// 2 of type Node* and 1 of Bool type- ListMiddle, ListReverse, ListCompare
+
+
+Bool ListCompare(Node* L1 , Node* L2){
+    if(L1==NULL || L2 ==NULL) return;
+    
+    While(!L1 && !L2){
+        if(L1->data != L2->data) return False;
+        L1 = L1->next;
+        L2 = L2->next
+    }
+   return True; 
+}
+
+
+Bool isPalindrome(Node* head){
+    if(head==NULL) return False;
+    if(head->next==NULL) return True; // As only 1 node in LL thus it will be a palindrome of itself
+    
+    //dividing LL in two and comparing data values of these separated LLs
+    Node *mid = Listmid(head);
+    Node *L2 = mid->next;
+    mid->next = NULL;
+    
+    L2 = ListReverse(L2);
+    return ListCompare(head,L2);
+    
+}
+
+T.C = O(n)
+S.C = O(1)
