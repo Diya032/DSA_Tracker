@@ -34,7 +34,7 @@ Node* MergeLists(Node *head1 , Node *head2){
     }
     else{third = last = head2; last->next = NULL}
     
-    while(){
+    while(!first && !second){
         if(second->next < first->next)
         {    last->next = second;
              last = second;
