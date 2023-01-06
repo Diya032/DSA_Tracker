@@ -1,0 +1,42 @@
+// 4 pointers: first, second, Third ,and last.
+// First is pointing to first node of LL1
+// second is pointing to the first node of LL 2
+
+1. Bring third and last to the node which is smaller amongst first node and second node
+2. if first is smaller then:
+     1) first = last->next // move first to next node
+     2) last->next = NULL
+     
+3. Now if node from LL2 is smaller after comparsion between first and second data then:
+     1) last->next=second
+     2) last = second //Bring last to this node
+     3) second->next = second // move second to next node
+     4) last->next = NULL // becomes last node of in-situ LL
+     
+/* Repeat process until null of either LL is reached */
+
+4. Remaining nodes i.e if either LL is not NULL after loop action
+     last->next = first or second depending on LL in questioned situation.
+     
+     
+if(first->data < second->data){third = last = first;}
+else{third = last = second;}
+
+while(first != NULL && second !=NULL){
+    if(first->data < second->data){
+        last->next = first;
+        last = first;
+        first->next = first;
+        last->next = NULL;
+    else{
+         last->next = second;
+         last = second;
+         second->next = second;
+         last->next= NULL; 
+    }
+    
+  }
+if(first!=NULL){last->next=first;}
+else{last->next=second;}
+
+}
