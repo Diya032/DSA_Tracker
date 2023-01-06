@@ -1,0 +1,67 @@
+class Node{
+public:
+    int data;
+    Node *next;
+    
+    Node(int d){
+    Node->next =NULL;
+    Node->data = d;
+    }
+
+}
+
+int ListMidNode(Node *head){
+
+    Node *s,*f = head;
+    if (head==NULL) return head;
+    
+    while(f!=NULL && f->next!=NULL){
+       s = s->next;
+       f = f->next->next;
+     }
+
+    return s;
+}
+
+Node* MergeLists(Node *head1 , Node *head2){
+    Node *third,*last;
+    Node *first = head1;
+    Node *second = head2;
+    
+    if(first->next < second->next)
+    {    third = last = head1;
+         last->next=NULL:
+    }
+    else{third = last = head2; last->next = NULL}
+    
+    while(){
+        if(second->next < first->next)
+        {    last->next = second;
+             last = second;
+             second = second->next;
+             last->next = NULL; 
+        }
+        else{//Similar code just first instead of second}
+    
+    }
+    //code for left nodes another if-else statement with last->next = first or second depending on which list's nodes are left
+
+}
+
+
+Node* MergeSort(Node *head){
+     if(head!=NULL || !head->next) return head;
+     
+     mid = ListMidNode(head); // Getting mid node of LL
+     
+     //Dividing List into two parts
+     fast = slow->next; //(mid+1)th node
+     slow->next = NULL; //Barring exit to make separate LL
+     
+     head = MergeSort(head); // sorting LHS LL recursively
+     fast = MergeSort(fast)  // sorting RHS LL recursively
+     
+     return MergeLists(head,fast);
+
+
+}
