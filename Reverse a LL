@@ -43,7 +43,7 @@ public:
 
 ListNode* reverse(ListNode* head)
     {
-        if (head == NULL || head->next == NULL)   //either list empty or only one node present
+        if (head == NULL || head->next == NULL)   //in stack last node will be returned
             return head;
  
         /* reverse the rest list and put
