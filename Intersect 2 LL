@@ -66,3 +66,72 @@ ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
          }
         return; 
     }
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+
+    int countnodes(ListNode * head){
+        ListNode* curr = head;
+        if(!curr) return 0;
+        int count = 0;
+        while(curr){
+            countnodes(curr->next);
+            count++;
+        }
+     return count;
+    }
+    int _getIntesectionNode(int d, ListNode* head1, ListNode* head2){
+        
+        ListNode* A = head1;
+        ListNode* B = head2;
+ 
+     
+        for (int i = 0; i < d; i++) {
+            if (!A) {
+                return -1;
+            }
+            A = A->next;
+        }
+ 
+        while (A != NULL && B != NULL) {
+            if (A == B)
+                return A->val;
+
+            A = A->next;
+            B = B->next;
+        }
+ 
+        return -1;
+    }
+
+    int getIntersectionNode(ListNode *headA, ListNode *headB) {
+
+        
+         
+        int a = countnodes(headA);
+        int b = countnodes(headB);
+         
+        int d = abs(a-b);
+         
+        if(a>b){
+            
+            return _getIntesectionNode(d,headA,headB);
+        }
+        else{
+            return _getIntesectionNode(d,headB,headA);
+        }
+
+
+             
+    }
+        
+    
+};
