@@ -1,0 +1,41 @@
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(!head || n<1) cout<<"Invalid";
+
+        ListNode* temp = head;
+        int len =0;
+
+        while(temp){
+            temp = temp->next;
+            len++;
+
+        }
+        int kthtoLast = len-n;
+        if(n>len) return head; //        cout<<"Outside bounds";
+                 
+
+        else if(kthtoLast == 0){
+            
+            return head->next;
+        }
+
+        else{
+            ListNode* prv = NULL;
+            ListNode* curr = head;
+        
+            for(int i=0; i<kthtoLast;i++){
+               prv = curr;
+               curr = curr->next;
+            }
+         prv->next = curr->next;
+        
+         return head;
+
+
+        }
+
+        
+    }
+    
+    
+    
+    //I THINK SLOW PTR AND FAST PTR METHOD IS EASIER CHECKOUT THAT METHOD
