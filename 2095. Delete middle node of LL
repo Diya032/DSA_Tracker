@@ -1,0 +1,21 @@
+    ListNode* deleteMiddle(ListNode* head) {
+    //BASE CONDITION
+    if(head==NULL || head->next==NULL){
+        return NULL;
+    }
+    //Slow move one step
+    ListNode* slow=head;
+    ListNode* fast=head->next->next; //First Move two step...Fast=head->next->next..because we want the node exactly one step before middle node
+    
+    while(fast!=NULL && fast->next!=NULL){
+        slow=slow->next; //move one step
+        fast=fast->next->next; //move two step
+    }
+    ListNode* temp=slow->next;//store delete node or middle node
+    
+    slow->next=slow->next->next;//break and making link
+    
+    delete temp;//delete the node ..we don't want memory leaks
+    
+    return head; //return head
+}
