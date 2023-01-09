@@ -1,0 +1,66 @@
+Eliminate Nodes which have on their right, node values that are STRICTLY GREATER (>) than its own value 
+FOR EX:- in the following LL--->  5->2->13->3->8 --------- O/P: 13->8
+                                  1->1->1->1---------------O/P: 1->1->1->1 only as same node values
+                                  
+> OPTiMIZED APPROACH : DEQUEUE AND STACK //unable to think
+> Recursion
+> Iterative 
+
+initial thoughts
+- Double loop iterate i and j                       //Thoughts : how to iterate pointers?
+    - break if even 1 j->val < i-> val              O(n^2)
+- Delete ith node
+    - Case 1 (start Node)
+    - Case 2 (in b/w)
+    - Case 3 (last node)
+
+Now how to determine which node lies in which case ? how many pointers/copies?-----thoughts shifting to another method
+
+!//UNDERSTANDING SOLUTION//!
+Intuition: Removal in linear time only if traverse from right to left  // Did not get but now i know :>
+
+SOL1 O(n) and O(1)
+  reverse the node because we cannot access elements from end of list(as we did in array)
+  delete if maxi>curr val
+  if delete prev->next=prev->next->next else update prev
+  updation of prev means that this element has been passed !!!
+  
+class Solution {
+public:
+    ListNode* reverse(ListNode* head) {
+       ListNode* curr=head;
+        ListNode * prev=NULL;
+        ListNode * next1=NULL;
+        while(curr != NULL){
+        next1=curr->next;
+       curr->next=prev;
+       prev=curr;
+       curr=next1;
+        }
+        return prev ;
+    }
+    ListNode* removeNodes(ListNode* head) {
+      head=reverse(head);
+      ListNode* curr=head;
+      ListNode* prev=NULL;
+      int maxi=head->val;
+      while(curr != NULL){
+      maxi=max(maxi,curr->val);
+      if(maxi > curr->val){
+          prev->next=prev->next->next;
+      }
+          else 
+          prev = curr;
+          
+          curr=curr->next;
+      }
+     return reverse(head);
+      
+    }
+};
+
+//Recursion (4 line soln)
+
+
+
+
