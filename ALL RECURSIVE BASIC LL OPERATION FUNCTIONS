@@ -1,1 +1,29 @@
-/* WRITE CODE HERE */
+/* WRITE CODE HERE */ Comparewith iterative alternative
+
+1. RECURSIVE REVERSE
+ 
+ ListNode* reverseList(ListNode* head){
+     
+     if (!head || !head->next) return head;
+     
+     rest = reverseList(head->next)    // 1->2->3->4->5->NULL                stack=  5(TOS),4,3,2,1]   for 1->2<-3<-4<-5<-NULL
+                                                                                                       for 2->3<-4<-5<-NULL
+                                                                                                       for 3->4<-5<-NULL
+                                                                                                       for 4->5<-NULL
+                                                                                                       for 5->NULL
+                                                                                                       for NULL
+ 
+     EXAMPLE FOR 2->3<-4<-5<-NULL
+                 |   {--rest---}
+                head
+     
+     head->next->next = head; // reversing the 2->3 link to 2<-3
+      |     |             |
+      2     3             2
+     
+     head->next = NULL; // NULL<- 2<-3<-4<-5<-NULL
+     
+     return rest;
+     
+ 
+ }
