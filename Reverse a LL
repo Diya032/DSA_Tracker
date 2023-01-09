@@ -72,3 +72,5 @@ ListNode* reverse(ListNode* head)
          first=q;
 }
 
+//BEST SOLUTION UNDERSTANDING VID : APNA COLLEGE
+https://www.youtube.com/watch?v=t7YaoQOFXzk
