@@ -1,0 +1,50 @@
+//Stack is the easiest solution 
+
+Implementation
+C++
+
+class Solution {
+public:
+    ListNode* removeNodes(ListNode* head) {
+        ListNode *dummy = new ListNode(INT_MAX);                  // new linked list make with capacity 
+        stack<ListNode*> stk; stk.push(dummy);                    // stack <data type> stack-name  , push LL elements in stack 
+        for (ListNode* node = head; node; node = node->next) {    // for the whole LL (head temp i.e node will iterate whole list; it's value in while will keepchanging)
+            while (stk.top()->val < node->val) stk.pop();         //     while the top value of stack i.e starting from the last node of LL < node = head->val (pop krro chotte wale elements)
+            stk.top()->next = node;                               //     
+            stk.push(node); 
+        }
+        return dummy->next; 
+    }
+};
+
+//CLEANER ITERATIVE CODE
+
+ListNode* reverseList(ListNode* head) {
+    ListNode *cur = head, *prev = nullptr;
+    while (cur != nullptr) {
+        swap(cur->next, prev);
+        swap(prev, cur);
+    }
+    return prev;
+}
+ListNode* removeNodes(ListNode* head) {
+    head = reverseList(head);
+    for (auto p = head; p != nullptr && p->next != nullptr; ) {
+        if (p->val > p->next->val)
+            p->next = p->next->next;
+        else
+            p = p->next;
+    }
+    return reverseList(head);
+}
+
+//Recursive java
+
+class Solution {
+    public ListNode removeNodes(ListNode head) {
+        if(head.next == null) return head;
+        head.next = removeNodes(head.next);
+        if(head.next.val > head.val) return head.next;
+        return head;
+    }
+}
