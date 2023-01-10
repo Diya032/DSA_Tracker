@@ -1,0 +1,16 @@
+Steps
+*odd = head
+*even, *evenhead = head->next;
+
+// Base case if(!head || !head->next) return head;
+ while (even && even->next)
+1. odd->next = even->next;
+2. odd = odd->next;
+
+4. even->next = odd->next;
+5. even = even->next;
+
+{Out of loop}
+
+odd->next = evenhead;  // 2 separate lists odd and even joining
+return head
