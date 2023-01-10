@@ -1,0 +1,5 @@
+//Python Solution *BEAUTIFUL SOLUTION using regex*
+
+def validPalindrome(self,s):
+    new_str = re.sub(r"[^a-zA-Z0-9\\"s]","",s).lower()
+    return new_str == new_str[::-1]
