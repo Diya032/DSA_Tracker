@@ -1,0 +1,13 @@
+3 pointers: s,f,n1        kth node (1-indexed list) thus i=0 and i<k-1
+
+// 1. Iterate f and n1 using for loop for i=1 ,i<k or i=0 , i<k-1 times ....mark first node with n1 
+2. use while loop to iterate s and f but keep in mind to iterate only once i.e f = f->next and s= s->next
+3. and when f reaches end mark s2 as n2 
+4. swap(n1,n2)
+     store the value of n1 in a variable as to not lose it
+     then swap it with slow 
+     
+     int n1_val = n1->val;
+     n1->val = s->val;
+     s1->val = n1_val;
+     
