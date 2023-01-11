@@ -1,0 +1,60 @@
+1.	Reverse the array
+
+Two pointers swapping   
+Initialize array pointers i=0, j=n  
+i++ and j--
+swap until i<j
+how to swap? Temp variable
+
+2 arrays : Using Extra Space
+Copy array elements backwards into new empty array
+2 for loops 
+i=n,j=0 ;till i>=0 and j<n; i—and j++
+
+    B[j] = A[i]
+
+Just pivot the goddamn array from rear end
+
+
+2.	Min max element in array
+
+Assume a max and a min =0
+Now traverse the array while comparing each ele to this max or min
+If turns out curr >max or curr<min then assign curr to max or min.
+
+Binary search type ki tarah
+Dono side se traverse kro 
+Let min,max = A[0]
+If none found then return A[0]
+Traversal of i and j until i<j
+a)	LHS traversal: Compare with A[0] if new max/min achieved swap and store
+b)	RHS traversal: Compare with A[0] if new max/min achieved swap and store
+c)	Stored 1 compare with stored 2
+
+
+3.	Kth max min of element of an array
+
+Let’s see for 2nd max element then:
+1st find maximum then traverse again to find second maximum
+
+N number of times traversal would be required
+
+4.	Sorting 0,1,2 array w/t sorting algo
+How to give the position of elements to the computer
+While the array doesn’t end count the number of zeros, ones, and twos.
+Now just reinvent/revamp the array,
+Traverse it again and jitney zeros utne element boxes = zero similarly for one and two
+
+5.	Move all negatives to one side
+
+Two pointers from both ends
+Do this while(i<j)
+LHS: if the element is less than 0 (negative) then increment else swap with RHS
+RHS: if the element is greater than 0 (positive) then decrement else swap with LHS
+
+
+
+6.	Remove Duplicates
+While (array doesn’t end)
+Count the elements 
+
