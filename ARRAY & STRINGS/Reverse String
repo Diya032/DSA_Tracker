@@ -27,7 +27,7 @@ public:
     }
 };
 3. Two Pointers
-class Solution {
+class Solution {                                              -----> LIKED THIS METHOD QUITE ALOT
 public:
     void reverseString(vector<char>& s) {
         int i = 0, j = s.size()-1;
