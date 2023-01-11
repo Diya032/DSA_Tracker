@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        sort(nums.begin(),nums.end());               //sort all elements of array [3,0,1] to [0,1,3]
+        for(int i=0;i<nums.size();i++){ 
+            if(nums[i]!=i){                         //iterate through the array and if index is not equal to the element value the index must be the missing number.
+                return i;
+            }
+        }
+        return nums.size();                  // ? why tho : prolly cause 1 element returned therfore size decreases tho i doubt it.
+    }
+};
