@@ -1,0 +1,16 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int i=0,k=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]!=0){
+                nums[k]=nums[i]; //updation of zero elements
+                if(i!=k){      // check if the index of non zero element not same as zero element
+                    nums[i]=0;
+                }
+                k++;
+            }
+        }
+    }
+};
+
