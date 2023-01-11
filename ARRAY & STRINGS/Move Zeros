@@ -1,4 +1,4 @@
-//Using STL
+//Using vector array
 
 class Solution {
 public:
