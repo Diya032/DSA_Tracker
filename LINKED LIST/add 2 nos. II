@@ -1,0 +1,45 @@
+//TRY 1// 
+  ListNode* Reverse(ListNode* head){
+        if(!head) return head;
+        ListNode* temp;
+        ListNode*curr=head;
+        ListNode*prv=NULL;
+        while(curr){
+            temp = curr->next;
+            curr->next=prv;
+            prv=curr;
+            curr=temp;
+        }
+        return prv;
+    }
+
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        if(!l1 || !l2) return l1!=NULL ? l1:l2;
+
+        ListNode* C1 = Reverse(l1);
+        ListNode* C2 = Reverse(l2);
+
+        ListNode* head = new ListNode(-1);   // result starting dummy variable 
+        ListNode* itr = head;               // iterator initialized at this dummy var
+
+        int carry=0;
+        // while condition exists: 1. SUM 2. LAST_DIGIT 3. CARRY
+        // Then MOVE 1.itr after linking with new last_digit node obtained 2. C1 and C2
+        while(C1 || C2||carry){
+            int sum = carry + (C1!=NULL?C1->val:0) + (C2!=NULL?C2->val:0);
+            int last_digit = sum % 10;
+            int carry = sum/10;
+
+            itr->next = new ListNode(last_digit);
+            itr = itr->next;
+
+            C1=C1?C1->next:C1;
+            C2=C2?C2->next:C2;
+
+        }
+       
+        return Reverse(head->next); // As head is dummy var we reverse head ka next}
+        
+        
+        
+ 
