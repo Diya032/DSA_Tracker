@@ -1,0 +1,22 @@
+class Solution {
+public:
+
+    ListNode* swapAdjNodes(ListNode* head){
+        if(!head||!head->next) return head;
+        ListNode* first= head;
+        ListNode* second= head->next;
+
+        ListNode* tempList = swapAdjNodes(second->next);
+        first->next = tempList;
+        second->next = first;
+        return second;
+
+        
+    }
+    ListNode* swapPairs(ListNode* head) {
+        return swapAdjNodes(head);
+        
+    }
+};
+
+// LOGiC IS GIVEN IN COMPLETE DSA PDF WONDERFULLY
