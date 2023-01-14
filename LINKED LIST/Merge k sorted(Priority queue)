@@ -1,0 +1,29 @@
+//Range based loops and c++ auto
+https://stackoverflow.com/questions/35490236/colon-and-auto-in-for-loop-c-need-some-help-understanding-the-syntax
+https://helloacm.com/how-to-merge-k-sorted-lists-using-recursive-divide-and-conquer-algorithms/#:~:text=Merging%20first%20two%20pairs%20require%20O%20%282N%29%2C%20then,2N%2B3N%2B4N%2B%E2%80%A6KN%3DO%20%28KN%29%20Merge%20Sorted%20Lists%20using%20Divide-and-Conquer%20Strategy
+
+
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if (lists.empty()) return nullptr;
+        // inverse the order of priority queue from smallest to largest sequence
+        priority_queue<int, vector<int>, std::greater<int>> data;
+        for (auto &n: lists) {
+            while (n) {
+                data.push(n->val);
+                n = n->next;
+            }
+        }
+        ListNode *dummy = new ListNode(-1);
+        ListNode *p = dummy;
+        while (!data.empty()) {
+            auto n = data.top();
+            data.pop();
+            ListNode *cur = new ListNode(n);
+            p->next = cur;
+            p = p->next;
+        }
+        return dummy->next;
+    }
+};
