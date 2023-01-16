@@ -1,0 +1,46 @@
+class Solution {
+public:
+    vector<int> sol; //if this inside the below vector then first testcase doesn't pass;
+
+    vector<int> preorderTraversal(TreeNode* root) {
+        
+        
+        if(root){
+            sol.push_back(root->val);
+            preorderTraversal(root->left);
+            preorderTraversal(root->right);
+        }
+       return sol; 
+    }
+};
+
+class Solution {
+public:
+    vector<int> sol; //if this inside the below vector then first testcase doesn't pass;
+
+    vector<int> postorderTraversal(TreeNode* root) {
+        
+        
+        if(root){
+            postorderTraversal(root->left);
+            postorderTraversal(root->right);
+            sol.push_back(root->val);
+        }
+       return sol; 
+    }
+};
+
+class Solution {
+public:
+    vector<int> sol;
+    vector<int> inorderTraversal(TreeNode* root) {
+
+        if(root){
+            inorderTraversal(root->left);
+            sol.push_back(root->val);
+            inorderTraversal(root->right);
+        }
+        return sol;
+        
+    }
+};
