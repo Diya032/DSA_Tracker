@@ -12,3 +12,26 @@ https://leetcode.com/problems/next-greater-element-i/solutions/1043638/stack-c-c
 Algo explanation: 
 https://www.bing.com/videos/search?q=next+greater+element+using+stack&&view=detail&mid=096608ED8534B4637ED4096608ED8534B4637ED4&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dnext%2Bgreater%2Belement%2Busing%2Bstack%26FORM%3DHDRSC3%26setmkt%3Den-in&setmkt=en-in
 Next Greater Element || (Circular Array)
+
+Daily Temperature:
+class Solution {
+public:
+    vector<int> nge(vector<int>& nums) {
+        stack<int> st;
+        vector<int> ans(nums.size(), 0);
+        for (int i = nums.size() - 1; i >= 0; i--)
+        {
+            while(!st.empty() && nums[i] >= nums[st.top()]) {
+                st.pop();
+            }
+            if(!st.empty())
+                ans[i] = st.top() - i;
+
+            st.push(i);
+        }
+        return ans;
+    }
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        return nge(temperatures);
+    }
+};
