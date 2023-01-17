@@ -54,3 +54,20 @@ NGE II:
     
     THE APPROACH FOR ALL THESE QUESTIONS EXPLAINED BY ADITYA VERMA:
     https://www.bing.com/videos/search?q=next+greatest+element&docid=603551086743268350&mid=1A5F12C0B896FF10E8801A5F12C0B896FF10E880&view=detail&FORM=VIRE
+
+
+Another soln for nge2;
+int n = nums.size();
+stack<int> s;
+vector<int> res(n, -1);
+        
+for(int i = 2 * n - 1; i >= 0; --i) {
+    int num = nums[i % n];
+    while(!s.empty() && s.top() <= num) s.pop();
+    if(!s.empty()) res[i % n] = s.top();
+    s.push(num);
+}
+return res;
+
+VIDEO EXPLANATION OF NGE2:
+https://www.youtube.com/watch?v=06zqYkKIsLA
