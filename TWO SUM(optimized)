@@ -1,3 +1,7 @@
+1.Brute force
+2. optimized by two pointer
+3. further optimization by hash map
+
 class Solution {
 public:
     
