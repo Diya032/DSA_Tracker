@@ -1,0 +1,20 @@
+Also tagged as DP question with kadane's Algorithm in use.<DO CHECK OUT LATER>
+
+
+
+
+
+
+
+class Solution {
+ public:
+    int maxProfit(vector<int>& prices){
+        int n= prices.size();
+        int maxprofit = 0; int minvalue = INT_MAX;
+        for(int i =0;i<n;i++){
+            minvalue = min(prices[i],minvalue);//current value se leke aage tak me jo v min hoga bas ushi ko consider krega
+            maxprofit= max(maxprofit,prices[i] - minvalue); //current maxprofit se leke aage tak jo max value aa jaye usko consider krega
+        }
+        return maxprofit;
+    }
+};
