@@ -8,3 +8,5 @@ public:
         return nums[(nums.size()-1)/2];
     }
 };
+ALL APPROACHES:
+https://leetcode.com/problems/majority-element/solutions/1787619/c-multiple-approaches-hashmaps-sorting-votingalgo/
