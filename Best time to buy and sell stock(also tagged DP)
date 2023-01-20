@@ -18,3 +18,20 @@ class Solution {
         return maxprofit;
     }
 };
+
+LESS EFFICIENY CODE:
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        
+        auto buy =0, sell=0,profit=0;
+        while(sell<prices.size()){
+            if(prices[sell]<prices[buy]){
+                buy=sell;
+            }
+            profit = max(profit,prices[sell]-prices[buy]);
+            sell++;
+        }
+        return profit;
+    }
+};
