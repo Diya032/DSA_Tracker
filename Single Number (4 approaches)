@@ -1,3 +1,5 @@
+https://leetcode.com/problems/single-number/solutions/1771720/c-easy-solutions-sorting-xor-maps-or-frequency-array/
+
 1. Using Hashmap
 class Solution {
 public:
