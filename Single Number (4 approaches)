@@ -76,3 +76,16 @@ public:
 TC: O(N)
 SC: O(1)
 
+PS : METHOD 4: SUM OF ELEMENTS
+All the unique elements , in the array have a frequency of 2 , except one element.
+
+Store all the unique elements in set.
+Add the elements of the set and multiply by 2 (SUM_1).
+Add all the elements of the array(ARRAY_SUM).
+Return (SUM_1 - ARRAY_SUM) .
+Why does this work ??
+ARRAY_SUM = 2*(a1+a2+a3...+ak) + a(k+1)
+SUM_1 = 2*(a1+a2+a3+....+ak+ a(k+1))
+
+a(x) represents the xth unique element in the array.
+a(k+1) represents the element with frequency=1.
