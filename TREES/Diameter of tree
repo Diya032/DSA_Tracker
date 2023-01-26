@@ -1,13 +1,4 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
+
  
  The question can be solved by small modification to program of Height of tree.
 The idea is quite simple. Max value of Height(leftSubtree)+Height(rightSubtree) (at any node ) is the diameter. Keep track of maxium diameter duing traversal and find the height of the tree.
@@ -17,21 +8,29 @@ d=max(d,ld+rd); => This line maintains the max diameter.
  
 class Solution {
 public:
-    int diameterOfBinaryTree(TreeNode* root) {
-        int diameter=0;
-        height(root,diameter);
-        return diameter;
-    }
-    int height(TreeNode* node,int& diameter){
-        if(!node){
+
+    int maxHeight(TreeNode* root, int& dia) {
+
+        //base case -> if leaf node, return height 0.
+        if(root == NULL) {
             return 0;
         }
-        int lh=height(node->left,diameter);
-        int rh=height(node->right,diameter);
-        diameter=max(diameter,lh+rh);
-        return 1+ max(lh,rh);
 
+        //recursive call for to find max height of each subtree
+        int leftHeight = maxHeight(root->left, dia);
+        int rightHeight = maxHeight(root -> right, dia);
 
+        //if the sum of new max heights greater than already existing diameter
+        dia = max(dia, leftHeight + rightHeight);
+
+        // return max height of the subtree + 1 for the root node
+        return 1+ max(leftHeight, rightHeight);
+    }
+
+    int diameterOfBinaryTree(TreeNode* root) {
+        int dia = 0;
+        maxHeight(root, dia);
+        return dia;
     }
 };
 
