@@ -1,25 +1,5 @@
-
-class Solution {
-public:
-    void fun(TreeNode* &root1, TreeNode* &root2){
-        
-        if(root2==NULL||root1==NULL) {
-            if(root1==NULL)
-            root1=root2;
-            return;
-        }
-        if(root1&&root2)
-        root1->val+=root2->val;
-        
-        fun(root1->left,root2->left);
-        fun(root1->right,root2->right);
-    }
-    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
-        fun(root1,root2);
-        return root1;
-    }
-};
-
+//GREAT SOLUTION WITH GOOD MANY APPROACHES
+https://leetcode.com/problems/merge-two-binary-trees/solutions/588123/100-00-fast-in-run-time-and-memory-recursive-iterative-bfs-dfs/
 
 class Solution {
 public:
