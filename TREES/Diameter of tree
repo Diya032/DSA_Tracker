@@ -28,3 +28,21 @@ public:
 
     }
 };
+
+//My initial inebrited try :)
+
+class Solution {
+public:
+    int diameterOfBinaryTree(TreeNode* root) {
+        if(!root) return 0;
+        
+        int ld = diameterOfBinaryTree(root->left);
+        int rd = diameterOfBinaryTree(root->right);
+
+        if(ld==0) return rd;
+        if(rd==0) return ld;
+
+        return ld + rd;
+        
+    }
+};
