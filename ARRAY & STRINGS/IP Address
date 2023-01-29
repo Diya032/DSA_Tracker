@@ -29,5 +29,7 @@ public:
 
 // python
 
-x = string.replace(".","[.]")
-return x
+class Solution:
+    def defangIPaddr(self, address: str) -> str:
+        x = address.replace(".","[.]")
+        return x
