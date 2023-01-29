@@ -1,3 +1,4 @@
+// 3ms
 string defangIPaddr(string address) {
     string s = "[.]";
         
@@ -9,6 +10,22 @@ string defangIPaddr(string address) {
     }
     return address;
 }
+//1ms
+class Solution {
+public:
+    string defangIPaddr(string address) {
+        string ans ="";
+
+        for(char x:address)
+        {
+            if(x =='.')
+               ans = ans + "[.]";
+            else
+               ans = ans + x; 
+        }
+        return ans;
+    }
+};
 
 // python
 
