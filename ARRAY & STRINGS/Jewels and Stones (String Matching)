@@ -29,3 +29,7 @@ int numJewelsInStones(string jewels, string stones) {
     return num;
 }
 
+// USING HASHSET
+
+https://leetcode.com/problems/jewels-and-stones/solutions/113553/c-java-python-set-solution-o-j-s/
+
