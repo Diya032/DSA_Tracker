@@ -1,0 +1,5 @@
+// Count spaces (Python)
+class Solution(object): 
+    def mostWordsFound(self, sentences):
+        return max([i.count(" ") for i in sentences])+1
+        
