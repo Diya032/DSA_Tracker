@@ -26,3 +26,8 @@ int countAsterisks(string s) {
     }
     return res;
 }
+
+//python
+
+    def countAsterisks(self, s: str) -> int:
+        return sum([a.count('*') for a in s.split('|')][0::2])
