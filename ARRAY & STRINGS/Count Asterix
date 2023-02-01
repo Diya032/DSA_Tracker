@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int countAsterisks(string s) {
+        int barbel=0;
+        int cnt_Asterisks=0;
+        for(int i=0;i<s.size();++i){
+            if(barbel%2==0 && s[i]=='*'){
+// checking the number of the barbel should be odd means we can count the '*' between them 
+                cnt_Asterisks++;
+            }
+            if(s[i]=='|'){
+// barbell counter
+                barbel++;
+            }
+        }
+        return cnt_Asterisks;
+    }
+};
