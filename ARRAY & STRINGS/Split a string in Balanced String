@@ -27,3 +27,22 @@ int balancedStringSplit(string s) {
     
 }
 };
+
+//Python
+
+class Solution(object):
+    def balancedStringSplit(self, s):
+        count ={
+            'L':0,
+            'R':0
+        }
+        res=0
+        for ch in s:
+            count[ch]+=1
+
+            if(count['L']==count['R']):
+                res+=1
+            
+        return res
+
+     
