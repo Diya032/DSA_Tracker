@@ -1,0 +1,25 @@
+https://leetcode.com/problems/count-the-number-of-consistent-strings/solutions/3026193/c-easy-understandable-approach-using-set/
+
+class Solution {
+public:
+    int countConsistentStrings(string allowed, vector<string>& words) {
+        int res = words.size();  // Suppose initially all words are Consistent
+        bool alpha[26] = {};   //Default value false
+
+        // if allowed="aef" then
+        // 1 0 0 0 1 1 0
+        // a b c d e f g
+        
+        for(char c : allowed)
+            alpha[c-'a'] = true;
+        
+        for(string str : words)  // Iterate over the all the Strings of words
+            for(char c : str)
+                if(alpha[c-'a'] == false)  // if alpha(str[i]-'a')==false  means it is not present in allowed so str is not a consistent string so decrement res--.
+                {
+                    res--;
+                    break;
+                }
+        return res;
+    }
+};
