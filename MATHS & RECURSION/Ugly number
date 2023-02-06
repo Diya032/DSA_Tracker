@@ -19,3 +19,19 @@ public:
         return true;
     }
 };
+
+bool isUgly(int n) {
+    if(n <= 0) {
+        return false;
+    }
+    vector<int>primeNumbers = {2,3,5};
+    for(int i=0;i<primeNumbers.size();i++) {
+        while(n % primeNumbers[i] == 0) {
+            n = n/primeNumbers[i];
+        }
+    }
+    if(n == 1) {
+        return true;
+    }
+    return false;
+}
