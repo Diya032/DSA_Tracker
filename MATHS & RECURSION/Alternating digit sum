@@ -15,3 +15,33 @@ public:
         
     }
 };
+
+
+class Solution {
+public:
+    int alternateDigitSum(int n) {
+        int temp=n,i=0,j,k=0,sum=0;
+        vector<int> ans;
+        while(temp>0)
+        {
+            ans.push_back(temp%10);
+            temp/=10;
+            i++;
+        }
+        for(j=ans.size()-1;j>=0;j--)
+        {
+            if(k==0)
+            {
+                sum+=ans[j];
+                k=1;
+            }
+            else{
+                sum-=ans[j];
+                k=0;
+            }
+            
+            
+        }
+        return sum;
+    }
+};
