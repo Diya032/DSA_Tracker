@@ -21,6 +21,12 @@ public:
 };
 
 //////
+
+
+    Time complexity:O((n+m)∗log(n+m))
+
+    Space complexity:O(n+m)
+
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
