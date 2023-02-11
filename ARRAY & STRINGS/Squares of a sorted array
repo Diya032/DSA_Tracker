@@ -20,3 +20,22 @@ public:
         return ans;
     }
 };
+
+SAME CODE BUT LESSER /COMPACT LINES
+
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& A) {
+        vector<int> res(A.size());
+        int left = 0, right = A.size() - 1;
+        for (int k = A.size() - 1; k >= 0; k--) {
+
+            if (abs(A[right]) > abs(A[left])) 
+                res[k] = A[right] * A[right--];
+
+            else 
+                res[k] = A[left] * A[left++];
+        }
+        return res;
+    }
+};
