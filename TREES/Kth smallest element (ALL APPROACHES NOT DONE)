@@ -26,3 +26,31 @@ public:
 
 
 https://www.bing.com/videos/search?q=kth+smallest+element+in+bst&&view=detail&mid=D9C3D87F81018A096FDDD9C3D87F81018A096FDD&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dkth%2Bsmallest%2Belement%2Bin%2Bbst%26FORM%3DHDRSC3
+
+
+///YE APPROACH SMJH NAI AAYI////
+
+class Solution {
+public:
+    int kthSmallest(TreeNode* root, int k) {
+        int ans;
+        inorder(root, k, ans);
+        return ans;
+    }
+
+private:
+    void inorder(TreeNode* root, int& k, int& ans) {
+        if (!root) {
+            return;
+        }
+
+        inorder(root->left, k, ans);
+
+        if (--k == 0) {
+            ans = root->val;
+            return;
+        }
+
+        inorder(root->right, k, ans);
+    }
+};
