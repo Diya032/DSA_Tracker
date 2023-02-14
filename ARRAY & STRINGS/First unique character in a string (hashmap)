@@ -12,3 +12,5 @@ public:
         return -1;
     }
 };
+
+https://leetcode.com/problems/first-unique-character-in-a-string/solutions/2976235/easy-c-solution-basic-approach-array-loop/
