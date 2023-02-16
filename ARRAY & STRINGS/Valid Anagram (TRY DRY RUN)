@@ -2,6 +2,8 @@ https://stackoverflow.com/questions/37202662/what-is-the-meaning-about-s-i-si-a
 
 WHY DO WE DO s[i]-'a'? ------^ above link
 
+WHAT WOULD THE DRY RUNS BE?
+
 https://leetcode.com/problems/valid-anagram/solutions/3145768/c-easiest-beginner-friendly-sol-hash-table-o-n-time-and-o-1-space/
 
 class Solution {
