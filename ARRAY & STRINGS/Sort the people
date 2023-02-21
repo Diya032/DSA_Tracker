@@ -22,3 +22,17 @@ map<int,string,greater<int>> mp;
         for(auto i : mp)
             ans.push_back(i.second);
         return ans;
+        
+        //////////////////////////////////
+        
+        int n = heights.size();
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = {-heights[i], i};
+        }
+        sort(arr.begin(), arr.end());
+        vector<string> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = names[arr[i].second];
+        }
+        return ans; 
