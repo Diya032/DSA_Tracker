@@ -14,3 +14,21 @@ public:
         return ans;
     }
 };
+
+
+class Solution {
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        int ans=0;
+        for(auto person: accounts){
+            int total_money=0;
+            for(auto bank:person){
+                total_money+=bank;
+            }
+
+            if(total_money>ans) ans=total_money;
+
+        }
+        return ans;
+    }
+};
