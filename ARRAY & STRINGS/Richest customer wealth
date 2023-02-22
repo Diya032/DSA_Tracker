@@ -32,3 +32,17 @@ public:
         return ans;
     }
 };
+
+/////////////////80, 90 BEATS ON T.C AND S.C RESPECTIVELY//////////////////
+class Solution {
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        int X=0;
+        for(auto &i:accounts){
+            int F=0;
+            for(auto &j:i)F+=j;
+            X=max(X,F);
+        }
+        return X;
+    }
+};
