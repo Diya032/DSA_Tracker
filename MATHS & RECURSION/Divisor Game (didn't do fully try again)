@@ -6,3 +6,6 @@ TO DO
 2. DP Approach
 3. Other Data structure approach
 4. linear programming basic one liner approach
+
+return (n%2==0) ;
+return !(n&1);
