@@ -1,3 +1,5 @@
+https://leetcode.com/problems/left-and-right-sum-differences/solutions/3232380/100-solution-explained-code-video-explanation/?orderBy=most_votes
+///////////////////////////////////////////////////////////////////////////////////////////
 class Solution {
 public:
     vector<int> leftRigthDifference(vector<int>& nums) {
