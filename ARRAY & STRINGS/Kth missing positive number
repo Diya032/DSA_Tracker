@@ -21,6 +21,22 @@ public:
     }
 };
 
-//////////////////////////////////////////////////
+/////////////////DID NOT UNDERSTAND PLS DRY RUN/////////////////////////////////
 
 
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int c=0,j=0,lost=0;
+        for(int i=1;c!=k && j<arr.size();i++)
+        {   
+            if(arr[j]!=i)
+                c++;
+            else
+                j++;
+            lost=i;
+        }
+        lost+=k-c;
+        return lost;
+    }
+};
