@@ -1,3 +1,8 @@
+https://leetcode.com/problems/summary-ranges/solutions/1805583/c-detailed-explanation-w-dry-run-faster-than-100-basic-concept-used/?orderBy=most_votes
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 class Solution {
 public:
     vector<string> summaryRanges(vector<int>& arr) {
