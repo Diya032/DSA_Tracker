@@ -1,1 +1,21 @@
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        vector<bool>res;
+        int n=candies.size();
+        
+        for(int i=0; i<n ;i++){
+            bool flag = true;
 
+            for(int j=0; j<n ;j++){
+                if(candies[i] + extraCandies < candies[j]){
+                    flag = false;
+                    break;
+                }
+            }
+            res.push_back(flag);
+        }
+        return res;
+        
+    }
+};
